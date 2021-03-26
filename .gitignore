@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Else
+.vscode
+0.cpp
