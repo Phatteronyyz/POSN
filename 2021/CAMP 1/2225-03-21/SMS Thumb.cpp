@@ -8,10 +8,5 @@ int main(){
     printf("%c",((s-2)*3)+(m%3)+2+64);
 
 
-
-
-
-
-
     return 0;
 }
