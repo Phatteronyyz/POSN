@@ -1,18 +1,16 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main()
-{
-    int n,ans=1;
-    scanf("%d",&n);
-    if(n==1||n==2){
-        printf("%d",2);
-        return 0;
+int main(){
+    long long n,i,facd=1,facn=1;
+    scanf("%lld",&n);
+    for(i=n;i>n/2;i--)
+        facd*=i;
+    for(i=1;i<=(n+1)/2;i++)
+        facd/=i;
+    if(n%2==0){
+        printf("%lld",facd);
     }
-    else for(int i=0;i<n-1;i++){
-        ans = ans*(i+1);
+    if(n%2==1){
+        printf("%lld",facd*2);
     }
-    printf("%d",ans);
-
-    return 0;
 }
-
