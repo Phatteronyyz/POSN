@@ -19,7 +19,6 @@ int main(){
            else if(r1+r2>d) ck=2;
            else ck=0;
         }
-
         switch(ck){
             case 0: printf("None\n"); break;
             case 1: printf("One\n"); break;
