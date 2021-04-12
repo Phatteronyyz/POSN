@@ -1,18 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-char a[5000][5000];
-int main(){
-    int n;
-    scanf("%d",&n);
-    a[1][1]='*';
-    memset(a,'-',sizeof(a));
-    if(n==1) printf("%c",a[1][1]);
-    else(
-        for(i=1;i<=11;i++){
-
-        }
-    )
-
-
-    return 0;
+char a[5000][2000];
+int main (){
+	int r=1,c=1,n,nr,nc,j,i;
+	scanf("%d",&n);
+	memset(a,'-',sizeof a);
+	a[0][0]='*';
+	while(n--){
+		nr=r*2+1,nc=c*2;
+		for(j=0;j<nc;j++)
+			a[r][j]='*';
+		for(i=0;i<r;i++)
+			for(j=0;j<c;j++)
+				a[r+1+i][c+j]=a[i][j];
+		r=nr,c=nc;
+	}
+	for(i=0;i<r;i++){
+		for(j=0;j<c;j++)
+			printf("%c",a[i][j]);
+		printf("\n");
+	}
+	return 0;
 }
