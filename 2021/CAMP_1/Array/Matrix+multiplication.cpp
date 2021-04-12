@@ -16,7 +16,7 @@ int main() {
     }
     if(n1!=m2||m1!=n2) printf("Can't Multiply.");
     else{
-     for(i=0;i<n1;i++){
+      for(i=0;i<n1;i++){
         for(j=0;j<m2;j++){
             for(k=0;k<n2;k++){
                 sum+=a[i][k]*b[k][j];
