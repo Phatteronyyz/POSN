@@ -1,11 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 int a[40][40];
-int main(){
-    int q,h,i,j,k,w,mx,ai=0,aj=0;
+int main() {
+    int q,h,w,i,j,k,mx=-2e9,ai,aj;
     scanf("%d",&q);
     while(q--){
-        ai=0,aj=0;
         mx=-2e9;
         scanf("%d %d",&h,&w);
         for(i=1;i<=h;i++){
@@ -15,24 +14,23 @@ int main(){
         }
         for(i=1;i<=h;i++){
             for(j=1;j<=w;j++){
-                if((a[i][j]+a[i][j+1]>mx)&&(abs(a[i][j]-a[i][j+1])<=10)&&j+1<=w){
+                if(abs(a[i][j]-a[i][j+1])<=10&&a[i][j]+a[i][j+1]>mx&&j+1<=w){
                     mx=a[i][j]+a[i][j+1];
-                    ai=i,aj=j;
+                    ai=i;
+                    aj=j;
                 }
-                if((a[i+1][j]+a[i][j]>mx)&&(abs(a[i][j]-a[i+1][j])<=10)&&i+1<=h){
-                    mx=a[i][j]+a[i+1][j];
-                    ai=i,aj=j;
+                if(abs(a[i][j]-a[i+1][j])<=10&&a[i][j]+a[i+1][j]>mx&&i+1<=h){
+                    mx=a[i+1][j]+a[i][j];
+                    ai=i;
+                    aj=j;
                 }
+            }
         }
-
-
-    }
-    printf("%d %d",ai,aj);
+        printf("%d %d",ai,aj);
     }
     
     return 0;
 }
-
 
 /*
 2
