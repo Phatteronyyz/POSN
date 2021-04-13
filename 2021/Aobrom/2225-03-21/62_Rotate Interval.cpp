@@ -17,9 +17,6 @@ int main(){
         }
         b[len]='\0';
         printf("%s",b);
-
-
-
     }
     return 0;
 }
