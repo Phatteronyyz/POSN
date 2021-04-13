@@ -22,7 +22,6 @@ int main() {
             printf("Z");
             st='N';
         }
-        //else st = play(a[i],st);
         else{
             while (st!=a[i])
             {
