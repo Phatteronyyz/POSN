@@ -20,8 +20,6 @@ void play(int x,int y){
         mx=max(a[x-1][y],mx);
         play(x-1,y);
     }
-    
-    
 }
 int main() {
     int x,y,i,j;
