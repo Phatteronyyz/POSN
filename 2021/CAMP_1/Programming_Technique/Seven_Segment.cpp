@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 char a[5][100];
-int checknangOO_ISUS(int n,int sum){
-    int num,cou,j;
+long long checknangOO_ISUS(long long n,long long sum){
+    long long num,cou,j;
     for(j=0,cou=n;cou>0;j+=4,cou--){
         if(a[0][j]==' ' && a[0][j+1]==' ' && a[0][j+2]==' ' &&
            a[1][j]==' ' && a[1][j+1]==' ' && a[1][j+2]=='|' &&
@@ -35,7 +35,7 @@ int checknangOO_ISUS(int n,int sum){
         if(a[0][j]==' ' && a[0][j+1]=='_' && a[0][j+2]==' ' &&
            a[1][j]=='|' && a[1][j+1]=='_' && a[1][j+2]=='|' &&
            a[2][j]=='|' && a[2][j+1]=='_' && a[2][j+2]=='|') num = 8;
-           
+
         if(a[0][j]==' ' && a[0][j+1]=='_' && a[0][j+2]==' ' &&
            a[1][j]=='|' && a[1][j+1]=='_' && a[1][j+2]=='|' &&
            a[2][j]==' ' && a[2][j+1]=='_' && a[2][j+2]=='|') num = 9;
@@ -46,29 +46,29 @@ int checknangOO_ISUS(int n,int sum){
         sum += num * pow(10,cou-1);
     }
     return sum;
-} 
+}
 int main() {
-    int i,n,m,suma=0,sumb=0;
-    scanf("%d %d",&n,&m);
-    for(i=0;i<3;i++){
-        gets(a[i]);
-    }
+    long long i,n,m,suma=0,sumb=0;
+    gets(a[0]);
+    sscanf(a[0],"%lld %lld",&n,&m);
+    gets(a[0]);
+    gets(a[1]);
+    gets(a[2]);
     suma = checknangOO_ISUS(n,0);
-    for(i=0;i<3;i++){
-        gets(a[i]);
-    }
-    sumb = checknangOO_ISUS(m,0); 
-    printf("%d + %d",suma,sumb);
-    printf("%d",suma+sumb);
+    gets(a[0]);
+    gets(a[1]);
+    gets(a[2]);
+    sumb = checknangOO_ISUS(m,0);
+    printf("%lld",suma+sumb);
     return 0;
 }
 
 /*
 4 2
-               
+
   | |_|   | |_|
   |   |   |   |
-       
+
 |_|   |
   |   |
 

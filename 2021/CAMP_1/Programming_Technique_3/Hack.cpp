@@ -1,8 +1,3 @@
-/*
- TASK:
- LANG: C
- AUTHOR: Phattarawat
-*/
 #include <bits/stdc++.h>
 using namespace std;
 string a[100100];
