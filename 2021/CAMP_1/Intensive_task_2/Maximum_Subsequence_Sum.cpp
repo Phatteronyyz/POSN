@@ -1,17 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 int main() {
     ios::sync_with_stdio(0);
     int n,a,i,sum=0,mx=-2e9,st=1,en,ans;
     cin >> n;
-    fpr(i=0;i<n;i++){
+    for(i=1;i<=n;i++){
         cin >> a;
-        sum+=n;
+        sum+=a;
         if(sum>mx){
             mx=sum;
             en=i;
-
         }
         if(sum<0){
             sum=0;

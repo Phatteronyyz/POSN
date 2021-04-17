@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-int a[1000],b[1000];
+long long a[1000],b[1000];
 int main() {
     ios::sync_with_stdio(0);
-    int n,i,ans=0;
+    long long n,i,ans=0;
     cin >> n;
     for(i=0;i<n;i++){
         cin >> a[i];
@@ -16,6 +16,6 @@ int main() {
     for(i=0;i<n;i++){
         ans+=(a[i]*b[i]);
     }
-    printf("%d",ans);
+    printf("%lld",ans);
     return 0;
 }
