@@ -3,8 +3,8 @@ using namespace std;
 
 int main() {
     ios::sync_with_stdio(0);
-    int a = 5;
-    float *p;
+    int i=3,j=5,*p=&i,*q=&j,*r;
+    double x = 2.5 , *y = &x;
 
     printf("%p\n",&a);
     p = &a;
