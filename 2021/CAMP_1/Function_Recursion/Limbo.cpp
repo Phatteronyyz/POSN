@@ -32,7 +32,7 @@ int main() {
                 cn=0;
                 play(i,j);
                 mx=max(mx,cn);
-            }
+            }                                                                                                                                                                                                                                   a
         }
     }
     printf("%d",mx);
