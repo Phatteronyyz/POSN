@@ -11,7 +11,7 @@ int main() {
     while (q--)
     {
         scanf("%d",&m);
-        w=upper_bound(a,a+n,m)-a;
+        w=lower_bound(a,a+n,m)-a;
         printf("%d",w);
 
     }

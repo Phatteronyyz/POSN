@@ -6,7 +6,6 @@ int main() {
     int n,m,i,j,mn=2e9;
     cin >> n >> m;
     for(i=1;i<=n;i++){
-
         for(j=1;j<=m;j++){
             cin >> a[i][j];
         }
