@@ -23,6 +23,5 @@ int main() {
         sport(0);
     }
     
-    
     return 0;
 }
