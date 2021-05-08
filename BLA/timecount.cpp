@@ -1,6 +1,6 @@
 #include <iostream>
-#include <stdlib.h> //for system()
-#include <windows.h> //for Sleep() and Beep()
+#include <stdlib.h> 
+#include <windows.h> 
 
 using namespace std;
 
@@ -27,10 +27,9 @@ void timer(int m, int s)
 int main()
 {
     int h, m, s;
-   /* cout << "Hours: "; cin >> h;
+    cout << "Hours: "; cin >> h;
     cout << "Minutes: "; cin >> m;
-    cout << "Seconds: "; cin >> s;*/
+    cout << "Seconds: "; cin >> s;
     timer(10, 20);
-    /*for (int i = 100; ; i = i + 50)
-        Beep(i, 1000);*/
+    
 }
