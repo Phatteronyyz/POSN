@@ -9,39 +9,35 @@ using namespace std;
 #define mxheap priority_queue<int, vector<int> >
 #define mnheap priority_queue<int, vector<int> , greater<int> >
 #define nl << "\n"
+#define sp << " "
+#define loop0(i,a,b) for(int i=a;i<b;i++)
+#define loop1(i,a,b) for(int i=a;i<=b;i++)
 
 using ll = long long;
 
 typedef pair<int,int> PII;
 
-const int mxN = 2e6+10;
-ll a[mxN];
+int in[1000100],out[1000100];
 
 void solve(){
-    int n;
+    int n,q,s,e,i;
     cin >> n;
-    for(int i=0;i<n;i++) cin >> a[i];
-    ll lb=0,rb=1e18;
-    while(lb<rb){
-        ll mb=(lb+rb)/2;
-        bool ch=0;
-        stack<ll> st;
-        for(int i=0;i<n;++i){
-            if(a[i]>mb){
-                if(empty(st)) pu(a[i],st);
-                else if(st.top()==a[i]) pop(st);
-                else ch=1;
-            }
-        }
-        if(empty(st)&&!ch) rb=mb;
-        else lb=mb+1;
+    for(i=0;i<n;i++){
+        cin >> s >> e;
+        in[s]++,out[e]++;
     }
-    cout << lb nl;
+    for(i=1;i<=1000000;i++)
+        in[i]+=in[i-1],out[i]+=out[i-1];
+    cin >> q;
+    while(q--){
+        cin >> s >> e;
+        cout << (in[e]-out[s-1]) sp;
+    }
 }
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
     solve();
-
+    
     return 0;
 }

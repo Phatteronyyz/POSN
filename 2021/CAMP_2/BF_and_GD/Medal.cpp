@@ -10,36 +10,32 @@ using namespace std;
 #define mnheap priority_queue<int, vector<int> , greater<int> >
 #define nl << "\n"
 #define sp << " "
+#define loop0(i,a) for(i=0;i<a;i++)
+#define loop1(i,a) for(i=1;i<=a;i++)
 
 using ll = long long;
 
 typedef pair<int,int> PII;
 
-char a[10100],b[10100];
-int dp[2][10100];
+const int N = 5e5+5;
+ll a[N],b[N],c[N];
 
 void solve(){
-    int i,j,lena,lenb,ans=-1,att;
-    cin >> (a+1) >> (b+1);
-    lena=strlen(a+1),lenb=strlen(b+1);
-    for(i=1;i<=lena;i++){
-        for(j=1;j<=lenb;j++){
-            if(a[i]!=b[j]) dp[i%2][j]=0;
-            else{
-                dp[i%2][j]=dp[(i-1)%2][j-1]+1;
-                if(dp[i%2][j]>ans)
-                    ans=dp[i%2][j] , att=j;
-            }
-        }
-    }
-    for(i=att-ans+1l;i<=att;i++)
-        cout << b[i];
-    cout nl;
+    ll n, ans=0;
+    cin>>n;
+    for (ll i=1;i<=n;i++) cin>>a[i];
+    for (ll i=1;i<=n;i++) cin>>b[i];
+    sort(a+1,a+n+1);
+    sort(b+1,b+n+1);
+    for (ll i=1;i<=n;i++) c[i]=a[n-i+1]+b[i];
+    sort(c+1,c+n+1);
+    for (ll i=2;i<=n;i++) ans+=abs(c[i]-c[i-1]);
+    cout<<ans;
 }
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
     solve();
-
+    
     return 0;
 }

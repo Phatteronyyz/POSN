@@ -12,14 +12,32 @@ using namespace std;
 #define sp << " "
 #define loop0(i,a,b) for(int i=a;i<b;i++)
 #define loop1(i,a,b) for(int i=a;i<=b;i++)
-#define print(a) (string) << a;
 
 using ll = long long;
 
 typedef pair<int,int> PII;
 
+int dp[1010][1010];
+char a[1010],b[1010];
+
 void solve(){
-    
+    int lena,lenb,i,j,q;
+    cin >> q;
+    while(q--){
+        cin >> (a+1) >> (b+1);
+        lena=strlen(a+1),lenb=strlen(b+1);
+        for(i=1;i<=lenb;i++) dp[0][i]=i;
+        for(i=1;i<=lena;i++) dp[i][0]=i;
+        for(i=1;i<=lena;i++){
+            for(j=1;j<=lenb;j++){
+                if(a[i]==b[j])
+                    dp[i][j]=dp[i-1][j-1];
+                else
+                    dp[i][j]=min(dp[i-1][j-1],min(dp[i][j-1],dp[i-1][j]))+1;
+            }
+        }
+        cout << dp[lena][lenb] nl;
+    }
 }
 
 int main() {

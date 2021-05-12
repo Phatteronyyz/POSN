@@ -9,39 +9,29 @@ using namespace std;
 #define mxheap priority_queue<int, vector<int> >
 #define mnheap priority_queue<int, vector<int> , greater<int> >
 #define nl << "\n"
+#define sp << " "
+#define loop0(i,a,b) for(int i=a;i<b;i++)
+#define loop1(i,a,b) for(int i=a;i<=b;i++)
 
 using ll = long long;
 
 typedef pair<int,int> PII;
 
-const int mxN = 2e6+10;
-ll a[mxN];
+int b[5]={0,3,5,5,6};
+int a[5]={0,1,2,4,4};
 
 void solve(){
-    int n;
-    cin >> n;
-    for(int i=0;i<n;i++) cin >> a[i];
-    ll lb=0,rb=1e18;
-    while(lb<rb){
-        ll mb=(lb+rb)/2;
-        bool ch=0;
-        stack<ll> st;
-        for(int i=0;i<n;++i){
-            if(a[i]>mb){
-                if(empty(st)) pu(a[i],st);
-                else if(st.top()==a[i]) pop(st);
-                else ch=1;
-            }
-        }
-        if(empty(st)&&!ch) rb=mb;
-        else lb=mb+1;
+    int idx;
+    for(int i=1;i<=4;i++){
+        idx = lower_bound(b+1,b+5+1,a[i])-(b+1);
+        cout << idx sp;
     }
-    cout << lb nl;
+    
 }
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
     solve();
-
+    
     return 0;
 }
