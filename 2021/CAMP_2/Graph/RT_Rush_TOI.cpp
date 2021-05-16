@@ -17,28 +17,31 @@ using ll = long long;
 
 typedef pair<int,int> PII;
 
-struct A{
-    int s,e,w;
-    bool operator < (const A& o) const{
-        return e < o.e;
-    }
-};
-A a[100100];
-int b[100100],dp[100100];
+const int mxN = 350;
+int dp[mxN][mxN];
 
 void solve(){
-    int n,i,idx;
-    cin >> n;
-    for(i=1;i<=n;i++)
-        cin >> a[i].s >> a[i].e >> a[i].w;
-    sort(a+1,a+n+1);
-    for(i=1;i<=n;i++)
-        b[i]=a[i].e;   
-    for(i=1;i<=n;i++){
-        idx = lower_bound(b+1,b+n+1,a[i].s)-(b+1);
-        dp[i]=max(dp[i-1],dp[idx]+a[i].w);
-    } 
-    cout << dp[n] nl;
+    memset(dp, 0x3f, sizeof(dp));
+	int n,m;
+	cin >> n >> m;
+	while(m--) {
+		int u,v,w;
+		cin >> u >> v >> w;
+		dp[u][v]=min(dp[u][v], w);
+	}
+	for(int k=1; k<=n; ++k) {
+		for(int i=1; i<=n; ++i) {
+			for(int j=1; j<=n; ++j) {
+				dp[i][j] = min(dp[i][j], dp[i][k]+dp[k][j]);
+			}
+		}
+	}
+	for(int i=1; i<=n; ++i) {
+		for(int j=1; j<=n; ++j) {
+			cout << (dp[i][j]>1e9?0:dp[i][j]) << " " ;
+		}
+		cout << "\n";
+	}
 }
 
 int main() {

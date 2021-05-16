@@ -17,28 +17,31 @@ using ll = long long;
 
 typedef pair<int,int> PII;
 
-struct A{
-    int s,e,w;
-    bool operator < (const A& o) const{
-        return e < o.e;
-    }
-};
-A a[100100];
-int b[100100],dp[100100];
+vector<int > g[1010];
+int w[1010],mark[1010],j;
+ll sum,ma=-1e13;
+
+void dfs(int u){
+    if(mark[u]==j) return;
+    mark[u]=j;
+    sum+=w[u];
+    for(auto x: g[u]) dfs(x);
+}
 
 void solve(){
-    int n,i,idx;
-    cin >> n;
-    for(i=1;i<=n;i++)
-        cin >> a[i].s >> a[i].e >> a[i].w;
-    sort(a+1,a+n+1);
-    for(i=1;i<=n;i++)
-        b[i]=a[i].e;   
-    for(i=1;i<=n;i++){
-        idx = lower_bound(b+1,b+n+1,a[i].s)-(b+1);
-        dp[i]=max(dp[i-1],dp[idx]+a[i].w);
-    } 
-    cout << dp[n] nl;
+    int n,m,i,ans=1,r,s;
+    cin >> n >> m;
+    for(i=1;i<=n;i++) cin >> w[i];
+    for(i=0;i<m;i++){
+        cin >> r >> s;
+        g[r].push_back(s);
+    }
+    for(j=1;j<=n;j++){
+        sum=0;
+        dfs(j);
+        if(sum>ma) ma=sum,ans=j;
+    }
+    cout << ans << ma nl;
 }
 
 int main() {
