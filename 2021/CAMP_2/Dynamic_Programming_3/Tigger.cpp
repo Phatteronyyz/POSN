@@ -27,7 +27,7 @@ int play(int now,int last){
 }
 
 void solve(){
-    cin << n;
+    cin >> n;
     for(int i=1;i<=n;i++) cin >> a[i];
     cout << play(2,1) nl;
 }
